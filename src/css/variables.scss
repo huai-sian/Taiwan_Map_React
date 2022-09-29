@@ -1,0 +1,20 @@
+:root {
+  --c-main: #3fb195;
+}
+
+$c_main: var(--c-main);
+$c_ScenicSpot: #3fb195;
+$c_Restaurant: #ff9999;
+$c_Hotel: #a79bfd;
+$c_Activity: #feb155;
+
+@mixin pad {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}

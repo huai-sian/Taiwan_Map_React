@@ -1,0 +1,552 @@
+@import './variables.scss';
+
+:root {
+  --c-main: #3fb195;
+}
+
+$c_main: #3fb195;
+$c_ScenicSpot: #3fb195;
+$c_Restaurant: #ff9999;
+$c_Hotel: #a79bfd;
+$c_Activity: #feb155;
+
+
+body {
+  background-color: #fafafa;
+}
+
+.shadow {
+  box-shadow: 0px 0px 1.5rem #00000019;
+}
+
+.d-flex {
+  display: flex;
+}
+
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.mb-1 {
+  margin-bottom: .2rem;
+}
+
+.me-1 {
+  margin-right: .2rem;
+}
+
+.card {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 1rem;
+  background: white;
+  text-decoration: none;
+  transition: box-shadow 0.5s;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  &-content {
+    text-align: start;
+    padding: 1rem;
+    @media screen and (max-width: 767px) {
+      padding: .3rem;
+    }
+  }
+  &:hover {
+    box-shadow: 0px 0px 1.5rem #00000019;
+    .card-img {
+      transform: scale(1.2);
+    }
+  }
+  &-box {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background-image: url(./../Images/logo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: all .4s;
+  }
+  
+  &-title {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.6rem;
+  }
+  &-tag {
+    background-color: $c_main;
+    margin: 0 0.2rem;
+    padding: 0.1rem 0.3rem 0.2rem;
+    line-height: 2rem;
+    color: #ffffff;
+    white-space: nowrap;
+    border-radius: .5rem;
+  }
+  &-ScenicSpot {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    .card {
+      width: 32%;
+      flex-direction: column;
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+      &-box {
+        height: 250px;
+      }
+      &-tag {
+        background-color: $c_main;
+      }
+    }
+
+  }
+  &-Restaurant {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    .card {
+      width: 32%;
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+      &-box {
+        width: 100%;
+        height: 400px;
+      }
+      &-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: white;
+        background: linear-gradient(to bottom, transparent 30%, #000000cc 100%);
+        padding: 1rem;
+        @media screen and (max-width: 767px) {
+          padding: .3rem;
+        }
+      }
+    }
+  }
+  &-Hotel {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    .card {
+      width: 48%;
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+      &-box {
+        width: 200px;
+        max-width: 40%;
+        height: 200px;
+        max-height: 40vw;
+        order: 2;
+      }
+      &-content {
+        height: 200px;
+      }
+    }
+
+  }
+  &-Activity {
+    .card {
+      width: 100%;
+      &-box {
+        width: 40%;
+        border-radius: .5rem;
+        height: calc(200px - min(1.6rem, 3vw));
+        margin: 1rem;
+        @media screen and (max-width: 767px) {
+          margin: .3rem;
+        }
+      }
+    }
+  }
+}
+
+
+.detail {
+  &-title {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-btn {
+    margin: 0 .5rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 1.5rem;
+    color: $c_main;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      color: white;
+      background-color: $c_main;
+    }
+  }
+}
+
+.theme {
+  flex-wrap: wrap;
+  &-item {
+    width: 45%;
+    height: 6rem;
+    margin-bottom: .5rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    &:hover .theme-text {
+      background-color: #00000066;
+    }
+  }
+  &-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+    background-color: #00000019;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s;
+  }
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+}
+
+.header {
+  &-logo {
+    display: block;
+    width: 150px;
+    height: 70px;
+    background: url(../Images/logo.png) no-repeat center center / contain;
+  }
+  &-btn {
+    font-size: 1.8rem;
+    background-color: #fafafa;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    color: $c_main;
+    width: 35px;
+    height: 35px;
+    opacity: 0;
+    @media screen and (max-width: 1024px) {
+      opacity: 1;
+    }
+  }
+  &-select {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    border: 1px solid #c8c8c8;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    flex-wrap: nowrap;
+    z-index: 2;
+  }
+}
+
+.tabs {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  &-radio {
+    display: none;
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}):checked ~ .tabs-cnt {
+        transform: translateX(($i - 1) * -100%);
+      }
+      &:nth-child(#{$i}):checked ~ .tabs-ctl > .tabs-ctl-item:nth-child(#{$i}) {
+        border-bottom-color: $c_main;
+      }
+    }
+  }
+  &-cnt {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: transform 0.5s;
+  }
+  &-cnt-item {
+    position: absolute;
+    justify-content: start;
+    width: inherit;
+    padding-top: 1.5rem;
+    flex-wrap: wrap;
+    @for $i from 1 through 5 {
+      &:nth-of-type(#{$i}) {
+        left: ($i - 1) * 100%;
+      }
+    }
+  }
+  &-ctl {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    right: 0;
+    &-item {
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: black;
+    }
+  }
+}
+
+.drowdown, .dropdown {
+  position: absolute;
+  top: -700px;
+  left: 1.5rem;
+  right: 1.5rem;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  background-color: white;
+  z-index: 1;
+  transition: top .5s;
+  overflow: hidden;
+  color: black;
+  &.show {
+    top: 168px;
+  }
+  &-item {
+    display: block;
+    margin: 0.2rem .5rem;
+    padding: 0.3rem 1.2rem;
+    border: 1px solid $c_main;
+    transition: color 0.5s, background-color 0.5s;
+    cursor: pointer;
+    border-radius: .5rem;
+    color: black;
+    &:hover,
+    &.active {
+      color: white;
+      background-color: $c_main;
+    }
+  }
+  &-hr {
+    width: 100%;
+    margin: 0;
+    border: 1px solid #c8c8c8;
+  }
+  &-title {
+    position: relative;
+    width: 100%;
+    text-align: start;
+    margin: 0.3rem 0;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 4em;
+      height: 5px;
+      background-color: $c_main;
+      z-index: -1;
+    }
+  }
+  &-btn {
+    margin-top: 1rem;
+    margin-left: auto;
+    color: #ffffff;
+    padding: 0.5rem 2rem 0.4rem;
+    background-color: $c_main;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  &-mode {
+    width: 100%;
+    span {
+      margin: 0.3rem 0 0.8rem;
+      padding: 0.2rem 0.8rem;
+    }
+  }
+}
+
+.searchBtn {
+  display: block;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  color: #ffffff;
+  background-color: $c_main;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: .5rem;
+  overflow: hidden;
+  font-size: 1.3rem;
+}
+
+.title {
+  margin: 1.5rem 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: start;
+}
+
+
+.textbox {
+  flex-wrap: nowrap;
+  margin: 1rem 0;
+  padding: 0.5rem 0.75rem;
+  background-color: #fafafa;
+  border: 1px solid #c8c8c8;
+  border-radius: 0.5rem;
+  &-input {
+    width: 100%;
+    font: 1.25rem "Noto Sans TC", Arial, sans-serif;
+    color: #2c2c2c;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  &-btn {
+    font-size: 1.5rem;
+    color: $c_main;
+    background: transparent;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    transform: rotate(360deg);
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+}
+
+.select {
+  &-btn {
+    font-size: 1.5rem;
+    color: $c_main;
+    background: transparent;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    transform: rotate(360deg);
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+  &-input {
+    width: 100%;
+    font: 1.25rem "Noto Sans TC", Arial, sans-serif;
+    color: #2c2c2c;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+}
+
+.box {
+  width: calc(100% - 350px);
+  flex: 1;
+  box-sizing: border-box;
+  .goTop {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: none;
+    width: 40px;
+    height: 40px;
+    // color: $c_light;
+    background-color: $c_main;
+    cursor: pointer;
+    transform: rotate(90deg);
+    z-index: 1;
+  }
+  .nav {
+    position: sticky;
+    top: 0;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    @include pad {
+      display: flex;
+    }
+    &-btn {
+      margin: 0 1rem;
+      font-size: 1.8rem;
+      color: $c_main;
+      // background-color: $c_secondary-light;
+      border: none;
+      border-radius: 0.5rem;
+      outline: none;
+      opacity: 0;
+      &.show {
+        opacity: 1;
+      }
+    }
+    &-logo {
+      display: block;
+      width: 100px;
+      height: 70px;
+    }
+  }
+  .foot {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    // color: $c_light;
+    background-color: $c_main;
+    text-align: center;
+    @include mobile {
+      & > * {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+    }
+    .icoTW-main-island {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+    &-ptx {
+      width: 80px;
+    }
+  }
+}

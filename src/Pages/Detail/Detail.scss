@@ -1,0 +1,50 @@
+.detail {
+  padding: 2rem;
+  p {
+    padding-bottom: .5rem;
+    font-size: 1.05rem;
+    margin-top: 0rem;
+  }
+  &-pre {
+    padding: 0 1rem;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+    word-break: break-all;
+    text-align: start;
+  }
+  &-info {
+    padding: 1rem;
+    border-radius: .5rem;
+    background: #ffeeee;
+    text-align: start;
+  }
+  &-title{
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 0.2rem;
+  }
+  &-info-title {
+    margin: 1.5rem 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: start;
+  }
+  &-more {
+    text-decoration: none;
+    color: black;
+  }
+}
+.banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
