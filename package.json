@@ -2,6 +2,7 @@
   "name": "traveler_react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://huai-sian.github.io/Taiwan_Map_React",
   "dependencies": {
     "@emotion/css": "^11.10.0",
     "@emotion/react": "^11.10.0",
