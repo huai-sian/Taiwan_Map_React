@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from './Model/action';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from '@emotion/styled';
+import { createBrowserHistory } from 'history';
 import Header from './Components/Header';
 import Recommend from './Components/Recommend';
 import Home from './Pages/Home/Home';
@@ -59,6 +60,7 @@ function App() {
   const testData = useSelector(state => state.testData);
   const data = useSelector(state => state.data);
   const dispatch = useDispatch();
+  const history = createBrowserHistory({ basename: '/traveler_react'});
 
   const handleSelectCity = (val) => {
     setCity(val);
@@ -97,7 +99,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename={'/traveler_react'}>
         <Container>
           <Head>
             <Header handleSelectCity={handleSelectCity} city={city}></Header>
