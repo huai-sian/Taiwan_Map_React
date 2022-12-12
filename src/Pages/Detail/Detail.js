@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useDetail } from '../../hooks/useDetail';
 import Nearinfo from '../../Components/NearInfo.js';
 import './Detail.scss'
 
 // C3_315081100H_000020,
 export default function Detail({ mode, handleMode }) {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { data, mode: recMode, chMode } = useDetail(id);
   const updateMode = useCallback(() => {
@@ -25,7 +26,7 @@ export default function Detail({ mode, handleMode }) {
       <>
       <div className="detail-title">
         <div className="d-flex align-items-center">
-          <button className="detail-btn">
+          <button className="detail-btn" onClick={() => navigate(-1)}>
             <i className="fas fa-chevron-left"></i>
           </button>
           <h1 className="detail-title">{data[`${recMode}Name`]}</h1>
@@ -117,35 +118,18 @@ export default function Detail({ mode, handleMode }) {
       <p className="detail-pre">
         {data.DescriptionDetail || data.Description}
       </p>
-      <h2 className="fz-md c-main detail-info-title"><i className="fas fa-car"></i> 交通方式</h2>
-      <pre className="detail-pre">{data.TravelInfo}</pre>
-      <pre className="detail-pre">{data.ParkingInfo}</pre>
-      <div className="bdrs-sm">
-      {recMode === 'Activity' && 
-        <iframe
-          width="100%"
-          height="250"
-          loading="lazy"
-          title="Activity Map"
-          src={`https://maps.google.com/maps?q=${data.Position.PositionLat},${data.Position.PositionLon}&hl=zh-TW&z=16&amp;output=embed`}
-        ></iframe>
+      {data.TravelInfo &&
+        <>
+          <h2 className="fz-md c-main detail-info-title"><i className="fas fa-car"></i> 交通方式</h2>
+          <p className="detail-pre">{data.TravelInfo}</p>
+        </>
       }
-      {recMode !== 'Activity' &&
-        <iframe
-          width="100%"
-          height="250"
-          loading="lazy"
-          title="Other Map"
-          src={`https://maps.google.com/maps?q=${data[recMode + 'Name']}+${data[
-            recMode + 'Name'
-          ]
-            .split('')
-            .join('+')}&hl=zh-TW&z=16&amp;output=embed`}
-        >
-        </iframe>
+      {data.ParkingInfo &&
+        <>
+          <h2 className="fz-md c-main detail-info-title"><i className="fas fa-car"></i> 交通方式</h2>
+          <p className="detail-pre">{data.ParkingInfo}</p>
+        </>
       }
-      
-      </div>
       <div className="space"></div>
       <div className="d-flex justify-content-between align-items-center">
         <h2 className="detail-info-title">

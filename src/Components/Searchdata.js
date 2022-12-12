@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import { useGetData } from './../hooks/useGetData';
 import { sloganLib, cityLib, modeLib } from './../lib.js';
+import Error from './Error';
 
 export default function Searchdata() {
   let params = useParams();
@@ -72,63 +73,64 @@ export default function Searchdata() {
         活動
       </Link>
     </div>
-    <div className={`card-${mode}`}>
-      {data && data.map((item, i) =>  (
-        <Link to={`/detail/${item[mode+'ID']}`} className="card bdrs-sm" key={item[mode+'ID']}>
-          <div className="card-box">
-            <img className="card-img" 
-              src={item.Picture.PictureUrl1}
-              alt={item.Picture.PictureDescription1 || item[`${mode}Name`]}></img>
-          </div>
-          <div className="card-content">
-            <h2 className="card-title">{item[mode+'Name']}</h2>
-            {item.Date &&
+    {data && 
+      <div className={`card-${mode}`}>
+        {data.length == 0 && <Error />}
+        {data.length > 0 && data.map((item, i) =>  (
+          <Link to={`/detail/${item[mode+'ID']}`} className="card bdrs-sm" key={item[mode+'ID']}>
+            <div className="card-box">
+              <img className="card-img" 
+                src={item.Picture.PictureUrl1}
+                alt={item.Picture.PictureDescription1 || item[`${mode}Name`]}></img>
+            </div>
+            <div className="card-content">
+              <h2 className="card-title">{item[mode+'Name']}</h2>
+              {item.Date &&
+                <p className="card-text mb-1">
+                  <i className="fas fa-calendar"></i>
+                  <span>{item.Date}</span>
+                </p>
+              }
+              {!item.Date && item.StartTime && 
+                <p>
+                  <i className="fas fa-calendar"></i>
+                  <span>{item.StartTime} ~ </span>
+                  <span>{item.EndTime}</span>
+                </p>
+              }
+              {item.OpenTime && 
+                <p>
+                  <i className="fas fa-clock"></i>
+                  <span>{item.OpenTime.split(';')[0]} ~ </span>
+                </p>
+              }
+              {item.TicketInfo && 
+                <p>
+                  <i className="far fa-ticket"></i>
+                  <span>{item.TicketInfo.split(';')[0]} ~ </span>
+                </p>
+              }
+              {item.Address && 
+                <p>
+                  <i className="fas fa-location-arrow"></i>
+                  {item.Location && 
+                    <span>{item.Location}</span>
+                  }
+                  <span>{item.Address}</span>
+                </p>
+              }
               <p className="card-text mb-1">
-                <i className="fas fa-calendar"></i>
-                <span>{item.Date}</span>
+                <i className="fas fa-tag"></i>
+                {item.Class && <span className="card-tag">{item.Class}</span>}
+                {item.Class1 && <span className="card-tag">{item.Class1}</span>}
+                {item.Class2 && <span className="card-tag">{item.Class2}</span>}
+                {item.Class3 && <span className="card-tag">{item.Class3}</span>}
               </p>
-            }
-            {!item.Date && item.StartTime && 
-              <p>
-                <i className="fas fa-calendar"></i>
-                <span>{item.StartTime} ~ </span>
-                <span>{item.EndTime}</span>
-              </p>
-            }
-            {item.OpenTime && 
-              <p>
-                <i className="fas fa-clock"></i>
-                <span>{item.OpenTime.split(';')[0]} ~ </span>
-              </p>
-            }
-            {item.TicketInfo && 
-              <p>
-                <i className="far fa-ticket"></i>
-                <span>{item.TicketInfo.split(';')[0]} ~ </span>
-              </p>
-            }
-            {item.Address && 
-              <p>
-                <i className="fas fa-location-arrow"></i>
-                {item.Location && 
-                  <span>{item.Location}</span>
-                }
-                <span>{item.Address}</span>
-              </p>
-            }
-            <p className="card-text mb-1">
-              <i className="fas fa-tag"></i>
-              {item.Class && <span className="card-tag">{item.Class}</span>}
-              {item.Class1 && <span className="card-tag">{item.Class1}</span>}
-              {item.Class2 && <span className="card-tag">{item.Class2}</span>}
-              {item.Class3 && <span className="card-tag">{item.Class3}</span>}
-            </p>
-          </div>
-        </Link>
-          
-        )
-      )}
-    </div>
+            </div>
+          </Link>
+          )
+        )}
+      </div>}
     <div className="pagination d-flex">
       {page >= 2 && 
         <button className={`loadBtn fz-md bdrs-sm`} onClick={() => setPage(prev => prev - 1)}>

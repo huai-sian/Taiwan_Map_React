@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
 import { sloganLib, cityLib } from '../../lib';
-import { useDataFilter } from '../../hooks/useDataFilter';
 import { Link } from "react-router-dom";
 import Recommend from './../../Components/Recommend';
 
@@ -26,7 +25,7 @@ export default function Home() {
   const genCity = useMemo(() => dataFilter(Object.entries(cityLib), 7), []);
 
   const getImg = (n) => {
-    return require(`./../../Images/city_${n}.jpg`);
+    return `./../../Images/city_${n}.jpg`;
   }
 
   useEffect(() => {
@@ -49,7 +48,7 @@ export default function Home() {
     <h2 className="title">熱門景點</h2>
     <div className="hot">
       {ranCity.map((item, i) => {
-        return (<Link to="/" key={i} className="hot-city">
+        return (<Link to={`/search?mode=ScenicSpot&city=${item[0]}`} key={i} className="hot-city">
           <img src={getImg(i+1)} alt={item[0]} className="hot-city-img"/>
           <div className="hot-city-content">
             <span>{item[1].name}</span>

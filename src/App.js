@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import logo from './logo.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from './Model/action';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from '@emotion/styled';
 import Header from './Components/Header';
@@ -55,6 +56,9 @@ function App() {
   const [city, setCity] = useState('Taiwan');
   const [mode, setMode] = useState('ScenicSpot');
   const elementTop = useRef();
+  const testData = useSelector(state => state.testData);
+  const data = useSelector(state => state.data);
+  const dispatch = useDispatch();
 
   const handleSelectCity = (val) => {
     setCity(val);
@@ -81,7 +85,15 @@ function App() {
 
   }, [mode])
   
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
 
+  useEffect(() => {
+    if(data) {
+      console.log(data);
+    }
+  }, [data]);
 
   return (
     <div className="App">

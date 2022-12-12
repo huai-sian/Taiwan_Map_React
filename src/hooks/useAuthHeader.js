@@ -14,4 +14,3 @@ export const useAuthHeader = () => {
   let Auth = { Authorization: Authorization, 'X-Date': GMTString };
   return { Authorization, GMTString }
 };
-

@@ -14,7 +14,6 @@ export const useDataFilter = (arr, count = 4) => {
           result.push(arr[idx]);
           arr.splice(idx, 1);
         }
-        //setData(result);
         resolve(result);
       });
     }
