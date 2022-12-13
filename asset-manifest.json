@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/traveler_react/static/css/main.4f203105.chunk.css",
-    "main.js": "/traveler_react/static/js/main.789e0f80.chunk.js",
-    "main.js.map": "/traveler_react/static/js/main.789e0f80.chunk.js.map",
+    "main.css": "/traveler_react/static/css/main.550166b6.chunk.css",
+    "main.js": "/traveler_react/static/js/main.109c4160.chunk.js",
+    "main.js.map": "/traveler_react/static/js/main.109c4160.chunk.js.map",
     "runtime-main.js": "/traveler_react/static/js/runtime-main.97097c08.js",
     "runtime-main.js.map": "/traveler_react/static/js/runtime-main.97097c08.js.map",
     "static/js/2.8b2ade3e.chunk.js": "/traveler_react/static/js/2.8b2ade3e.chunk.js",
@@ -10,9 +10,20 @@
     "static/js/3.b3c042d3.chunk.js": "/traveler_react/static/js/3.b3c042d3.chunk.js",
     "static/js/3.b3c042d3.chunk.js.map": "/traveler_react/static/js/3.b3c042d3.chunk.js.map",
     "index.html": "/traveler_react/index.html",
-    "static/css/main.4f203105.chunk.css.map": "/traveler_react/static/css/main.4f203105.chunk.css.map",
+    "static/css/main.550166b6.chunk.css.map": "/traveler_react/static/css/main.550166b6.chunk.css.map",
     "static/js/2.8b2ade3e.chunk.js.LICENSE.txt": "/traveler_react/static/js/2.8b2ade3e.chunk.js.LICENSE.txt",
+    "static/media/banner_Activity.c2008bdf.png": "/traveler_react/static/media/banner_Activity.c2008bdf.png",
     "static/media/Home.scss": "/traveler_react/static/media/banner_Home.67120e81.png",
+    "static/media/banner_Hotel.190576ae.png": "/traveler_react/static/media/banner_Hotel.190576ae.png",
+    "static/media/banner_Restaurant.4ead0f1c.png": "/traveler_react/static/media/banner_Restaurant.4ead0f1c.png",
+    "static/media/banner_ScenicSpot.fc9c23b1.png": "/traveler_react/static/media/banner_ScenicSpot.fc9c23b1.png",
+    "static/media/city_1.872a7498.jpg": "/traveler_react/static/media/city_1.872a7498.jpg",
+    "static/media/city_2.c6e5439e.jpg": "/traveler_react/static/media/city_2.c6e5439e.jpg",
+    "static/media/city_3.d08256e4.jpg": "/traveler_react/static/media/city_3.d08256e4.jpg",
+    "static/media/city_4.6eedb3d5.jpg": "/traveler_react/static/media/city_4.6eedb3d5.jpg",
+    "static/media/city_5.f1580086.jpg": "/traveler_react/static/media/city_5.f1580086.jpg",
+    "static/media/city_6.99095f2a.jpg": "/traveler_react/static/media/city_6.99095f2a.jpg",
+    "static/media/city_7.1cfac313.jpg": "/traveler_react/static/media/city_7.1cfac313.jpg",
     "static/media/theme_1.31c32ad8.png": "/traveler_react/static/media/theme_1.31c32ad8.png",
     "static/media/theme_2.d092da27.png": "/traveler_react/static/media/theme_2.d092da27.png",
     "static/media/theme_3.0d20fec4.png": "/traveler_react/static/media/theme_3.0d20fec4.png",
@@ -25,7 +36,7 @@
   "entrypoints": [
     "static/js/runtime-main.97097c08.js",
     "static/js/2.8b2ade3e.chunk.js",
-    "static/css/main.4f203105.chunk.css",
-    "static/js/main.789e0f80.chunk.js"
+    "static/css/main.550166b6.chunk.css",
+    "static/js/main.109c4160.chunk.js"
   ]
 }
