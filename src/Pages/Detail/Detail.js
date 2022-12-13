@@ -4,6 +4,20 @@ import { useDetail } from '../../hooks/useDetail';
 import Nearinfo from '../../Components/NearInfo.js';
 import './Detail.scss'
 
+const handleTime = (item) => {
+  if(item.StartTime) {
+    item.StartTime = item.StartTime.split('T')[0];
+  }
+  if(item.EndTime) {
+    item.EndTime = item.EndTime.split('T')[0];
+  }
+  if(item.StartTime === item.EndTime) {
+    item.Date = item.EndTime;
+  }
+  console.log(item);
+  return item;
+}
+
 // C3_315081100H_000020,
 export default function Detail({ mode, handleMode }) {
   const navigate = useNavigate();
@@ -13,6 +27,8 @@ export default function Detail({ mode, handleMode }) {
     handleMode(recMode);
   }, []);
 
+  console.log(data);
+
   const clickEvent = () => {
     window.print();
   }
@@ -20,7 +36,7 @@ export default function Detail({ mode, handleMode }) {
     updateMode();
   }, [updateMode]);
 
-  return (
+  return (  
     <div className="detail">
       {data && 
       <>
@@ -47,14 +63,18 @@ export default function Detail({ mode, handleMode }) {
           <p className="card-text mb-1" >
             <i className="ico-calendar"></i>
             <span> 活動日期：</span>
-            <span>{data.Date}</span>
+            <span>{data.Date.split('T')[0]}</span>
           </p>
         }
         {!data.Date && data.StartTime && 
-          <p>
+          <p className="card-text mb-1">
             <span> 活動期間：</span>
-            <span>{data.StartTime} ~ </span>
-            <span>{data.EndTime}</span>
+            {data.StartTime === data.EndTime ?
+              <span>{data.EndTime.split('T')[0]}</span> :
+              <>
+                <span>{data.StartTime.split('T')[0]} ~ </span>
+                <span>{data.EndTime.split('T')[0]}</span>
+            </>}
           </p>
         }
         {data.OpenTime && 

@@ -4,6 +4,18 @@ import { useGetData } from './../hooks/useGetData';
 import { sloganLib, cityLib, modeLib } from './../lib.js';
 import Error from './Error';
 
+import Banner_Activity from './../Images/banner_Activity.png';
+import Banner_Hotel from './../Images/banner_Hotel.png';
+import Banner_Restaurant from './../Images/banner_Restaurant.png';
+import Banner_ScenicSpot from './../Images/banner_ScenicSpot.png';
+
+const ImgArr = {
+  Activity: Banner_Activity,
+  Hotel: Banner_Hotel,
+  Restaurant: Banner_Restaurant,
+  ScenicSpot: Banner_ScenicSpot,
+};
+
 export default function Searchdata() {
   let params = useParams();
   let [searchParams, setSearchParams] = useSearchParams();
@@ -14,16 +26,6 @@ export default function Searchdata() {
 
   const { data } = useGetData(mode, city, page, keyword);
 
-  // const { data:res } = useGetData(mode, city, page, keyword);
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   if(res) {
-  //     setData(prev => {
-  //       return [...prev, ...res]
-  //     });
-  //   }
-  // }, [res, page]);
 
   const getTitle = () => {
     if(keyword) {
@@ -35,14 +37,11 @@ export default function Searchdata() {
     }
   }
 
-  const getUrl = () => {
-    return `./../Images/banner_${mode}.png`;
-  }
 
   return (
     <div className="search">
       <div className="banner shadow">
-        <img className="banner-img" alt="Travel Guide" src={getUrl()} />
+        <img className="banner-img" alt="Travel Guide" src={ImgArr[mode]} />
         <h1 className="banner-text">
           {getTitle()}
         </h1>
@@ -86,18 +85,22 @@ export default function Searchdata() {
             <div className="card-content">
               <h2 className="card-title">{item[mode+'Name']}</h2>
               {item.Date &&
-                <p className="card-text mb-1">
-                  <i className="fas fa-calendar"></i>
-                  <span>{item.Date}</span>
-                </p>
-              }
+                  <p className="card-text mb-1" >
+                    <i className="ico-calendar"></i>
+                    <span>{item.Date.split('T')[0]}</span>
+                  </p>
+                }
               {!item.Date && item.StartTime && 
-                <p>
-                  <i className="fas fa-calendar"></i>
-                  <span>{item.StartTime} ~ </span>
-                  <span>{item.EndTime}</span>
-                </p>
-              }
+                  <p className="card-text mb-1">
+                    <i className="ico-calendar"></i>
+                    {item.StartTime === item.EndTime ?
+                      <span>{item.EndTime.split('T')[0]}</span> :
+                      <>
+                        <span>{item.StartTime.split('T')[0]} ~ </span>
+                        <span>{item.EndTime.split('T')[0]}</span>
+                    </>}
+                  </p>
+                }
               {item.OpenTime && 
                 <p>
                   <i className="fas fa-clock"></i>

@@ -105,7 +105,7 @@ function App() {
             <Header handleSelectCity={handleSelectCity} city={city}></Header>
           </Head>
           <div className="box">
-            <div className="goTop df-center fz-xl bdrs-xl shadow" onClick={scrollTop} ref={elementTop}>
+            <div className="goTop d-flex df-center fz-xl bdrs-xl shadow" onClick={scrollTop} ref={elementTop}>
               <i className="fas fa-chevron-up"></i>
             </div>
             <nav className="nav shadow">

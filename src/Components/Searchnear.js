@@ -2,6 +2,17 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import { useNearInfo } from './../hooks/useNearInfo';
 import { sloganLib, cityLib, modeLib } from './../lib.js';
+import Banner_Activity from './../Images/banner_Activity.png';
+import Banner_Hotel from './../Images/banner_Hotel.png';
+import Banner_Restaurant from './../Images/banner_Restaurant.png';
+import Banner_ScenicSpot from './../Images/banner_ScenicSpot.png';
+
+const ImgArr = {
+  Activity: Banner_Activity,
+  Hotel: Banner_Hotel,
+  Restaurant: Banner_Restaurant,
+  ScenicSpot: Banner_ScenicSpot,
+};
 
 export default function Searchnear() {
   let params = useParams();
@@ -15,16 +26,6 @@ export default function Searchnear() {
 
   const { data } = useNearInfo(mode, lat, lon);
 
-  // const { data:res } = useGetData(mode, city, page, keyword);
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   if(res) {
-  //     setData(prev => {
-  //       return [...prev, ...res]
-  //     });
-  //   }
-  // }, [res, page]);
 
   const getTitle = () => {
     if(keyword) {
@@ -43,7 +44,7 @@ export default function Searchnear() {
   return (
     <div className="search">
       <div className="banner shadow">
-        <img className="banner-img" alt="Travel Guide" src={getUrl()} />
+        <img className="banner-img" alt="Travel Guide" src={ImgArr[mode]} />
         <h1 className="banner-text">
           {getTitle()}
         </h1>
